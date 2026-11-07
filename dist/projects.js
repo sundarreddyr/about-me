@@ -4,7 +4,7 @@ window.portfolioProjects = [
     "id": "agentic",
     "mark": "AE",
     "name": "Agentic Engg",
-    "company": "Trumetric.AI",
+    "company": "Trumetric.AI (part of Specbee)",
     "dates": "Apr 2026 — Present",
     "period": "Role period",
     "draft": false,
@@ -51,14 +51,14 @@ window.portfolioProjects = [
         "Initially handled much of the backend implementation and issue resolution alongside architecture and deployments. As the team grew, delegated more feature work while staying hands-on with critical delivery blockers."
       ]
     ],
-    "companyUrl": "https://www.trumetric.ai/",
+    "companyUrl": "https://www.specbee.com/",
     "role": "Technical Lead · Team of 5"
   },
   {
     "id": "trusearch",
     "mark": "TS",
     "name": "Trusearch",
-    "company": "Trumetric.AI",
+    "company": "Trumetric.AI (part of Specbee)",
     "role": "Technical Lead · Team of 5",
     "dates": "Apr 2026 — Present",
     "period": "Role period",
@@ -135,7 +135,7 @@ window.portfolioProjects = [
     ],
     "liveUrl": "https://www.hcghospitals.com/",
     "liveLabel": "Explore my live work at HCG Hospitals",
-    "companyUrl": "https://www.trumetric.ai/",
+    "companyUrl": "https://www.specbee.com/",
     "projectUrl": "https://www.drupalreleases.com/project/search-api-trusearch",
     "inlineLinks": [
       {
@@ -150,7 +150,7 @@ window.portfolioProjects = [
     "name": "Grower App",
     "company": "Livine · Poultry ERP",
     "role": "Technical Lead",
-    "dates": "Apr 2025 — Apr 2026",
+    "dates": "Apr 2025 — Mar 2026",
     "period": "Role period",
     "summary": "An offline-first mobile app for breeder-farm weighing, analytics, and projections.",
     "stack": [
@@ -204,7 +204,7 @@ window.portfolioProjects = [
     "name": "Livine Finance",
     "company": "Livine · Poultry ERP",
     "role": "Technical Lead · Team of 3",
-    "dates": "Apr 2025 — Apr 2026",
+    "dates": "Apr 2025 — Mar 2026",
     "period": "Role period",
     "summary": "An accounting module connecting ERP activity, bank statements, and payment providers.",
     "stack": [
