@@ -388,3 +388,94 @@ body.project-open{overflow:hidden}#project-dialog{box-sizing:border-box;width:mi
 .analytics-technical summary{cursor:pointer;color:var(--ink);padding:6px 0;font-weight:550}.analytics-technical summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.analytics-technical p{margin:12px 0 8px}.analytics-technical code{overflow-wrap:anywhere}
 .analytics-card-metric{display:block;margin-top:12px;font-size:14px;font-weight:600;color:var(--brand-accent)}.analytics-card-metric small{font-size:10px;font-weight:400;margin-left:7px}
 @media(max-width:540px){.analytics-story{padding:24px 21px 6px;font-size:13px}.analytics-highlights{gap:12px;grid-template-columns:1fr 1.6fr}.analytics-highlights strong{font-size:21px}.analytics-highlights span{font-size:10px}}
+
+/* Local review: skills and company-linked project journey. */
+:root:not([data-theme=dark]){--bg:#fff;--card:#fff;--wash:#f3f6fa;--line:#e7ecf1;--muted:#697580}
+.home-section .profile-stack{position:static;max-width:740px;width:100%}
+.home-section .intro{padding:0!important}
+.home-section .intro h1{font-size:clamp(32px,3.5vw,43px);line-height:1.2;max-width:700px;letter-spacing:-1.4px;margin-top:13px}
+.home-section .intro p{max-width:66ch;font-size:14px;line-height:1.85;margin-top:18px}
+.skills-section{margin-top:53px;scroll-margin-top:32px}
+.section-heading{margin-bottom:20px}
+.section-heading h2{font-family:'Manrope',Arial,sans-serif;font-size:25px;line-height:1.35;font-weight:650;letter-spacing:-.75px;margin-top:11px}
+.skills-section .core-stack{width:100%;border-color:var(--line)}
+.skills-section .hero-tools{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;padding:24px 16px 26px}
+.skills-section .hero-tool small{font-size:10px}
+.skills-section .full-stack-button{padding:13px 18px;min-height:61px}
+.career-section{position:relative;margin-top:60px;padding-top:0;scroll-margin-top:32px}
+.anchor-alias{position:absolute;top:0}
+.journey-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:34px}
+.journey-heading>p{max-width:170px;font-size:12px;line-height:1.7;color:var(--muted);padding-bottom:3px}
+.career-project-timeline{padding-left:21px;margin-left:4px}
+.career-project-timeline>.company-group{grid-template-columns:105px minmax(0,1fr);gap:24px;padding:30px 0 36px}
+.career-project-timeline>.company-group:first-child{padding-top:4px}
+.career-project-timeline>.company-group::before{top:37px;left:-26px;width:8px;height:8px}
+.career-project-timeline>.company-group:first-child::before{top:12px;background:var(--accent)}
+.career-project-timeline>.company-group>.company-period{font-size:11px;line-height:1.9;padding-top:4px;letter-spacing:.15px;color:var(--muted)}
+.date-through{color:var(--muted);white-space:nowrap}
+.career-project-timeline .company-heading{gap:8px 15px;margin-bottom:21px;align-items:center}
+.career-project-timeline .company-heading h3{font-family:'Manrope',Arial,sans-serif;font-size:20px;letter-spacing:-.6px;font-weight:650}
+.company-context{font-size:10px;color:var(--muted)}
+.career-project-timeline .role-heading{align-items:center}
+.career-project-timeline .role-heading h4{font-size:13px;font-weight:600}
+.role-team{font-size:10px;color:var(--accent);border:1px solid var(--line);background:var(--wash);border-radius:5px;padding:2px 7px}
+.career-project-timeline .role-summary{margin:9px 0 0;max-width:66ch;font-size:12px;line-height:1.8;color:var(--muted)}
+.career-project-timeline .company-roles{padding-left:18px}
+.career-project-timeline .role-step{padding-bottom:35px}
+.career-project-timeline .role-step:last-child{padding-bottom:0}
+.career-project-timeline .role-step::before{left:-18px}
+.career-project-timeline .role-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px;width:100%}
+.career-project-timeline .role-projects .project{height:300px;margin:0}
+.career-project-timeline .role-projects .project.grower,.career-project-timeline .role-projects .project.finance{height:310px}
+.career-project-timeline .role-projects .project.analytics{height:252px;grid-column:1/-1}
+.career-project-timeline .role-projects .tile-label{padding:17px 15px;flex-wrap:wrap;gap:10px 4px;align-items:flex-start}
+.career-project-timeline .role-projects .project .tile-label>.project-wordmark:first-child{font-size:23px;max-width:none;letter-spacing:-1px}
+.career-project-timeline .role-projects .project.search .tile-label>.search-brand{font-size:24px;max-width:none}
+.career-project-timeline .role-projects .project-cta{font-size:0;padding:0;width:26px;height:26px;min-height:26px;justify-content:center;flex-shrink:0;gap:0;background:transparent;border-radius:50%}
+.career-project-timeline .role-projects .project-cta>span{font-size:18px;line-height:1}
+.career-project-timeline .role-projects .project .tile-label>span:first-child{max-width:calc(100% - 34px)}
+.career-project-timeline .repo-preview{width:calc(100% - 30px);margin-top:10px;padding-inline:4px}
+.career-project-timeline .repo-files>div{font-size:10px}
+.career-project-timeline .repo-toolbar{font-size:10px}
+.career-project-timeline .search-showcase{padding:22px 15px 0}
+.career-project-timeline .search-prompt{font-size:9px}
+.career-project-timeline .ai-search-label{font-size:8px;padding:8px 6px;gap:4px}
+.career-project-timeline .ai-search-bar{gap:4px;padding-left:8px}
+.career-project-timeline .overview-title{font-size:13px}
+.career-project-timeline .overview-kicker{font-size:8px}
+.career-project-timeline .grower-caption{font-size:21px;left:16px;top:87px;max-width:47%}
+.career-project-timeline .grower-caption small{font-size:10px;max-width:125px}
+.career-project-timeline .grower-phone{right:-4px;width:141px;top:83px}
+.career-project-timeline .finance-preview{width:calc(100% - 20px);margin-top:25px;font-size:9px}
+.career-project-timeline .finance-sidebar{width:29px}
+.career-project-timeline .finance-dashboard{padding:10px 8px}
+.career-project-timeline .finance-dashboard-title strong{font-size:10px}
+.career-project-timeline .finance-dashboard-title>span{font-size:7px}
+.career-project-timeline .project-card-footer,.career-project-timeline .project-company{font-size:9px;left:16px;padding-left:0;bottom:12px}
+.career-project-timeline .analytics-placeholder{top:83px;left:18px}
+.career-project-timeline .analytics-placeholder p{font-size:25px}
+.career-project-timeline .analytics-art{width:37%;right:5%;bottom:35px;height:130px}
+.career-project-timeline .education-step{grid-template-columns:105px minmax(0,1fr);gap:24px;padding-top:28px}
+.career-project-timeline .education-step::before{top:35px}
+.career-project-timeline .education-step h3{font-size:13px;line-height:1.7}
+.career-project-timeline .education-step h3 small{font-size:12px;margin-top:5px}
+@media(min-width:761px) and (max-width:1100px){.career-project-timeline>.company-group,.career-project-timeline .education-step{grid-template-columns:78px minmax(0,1fr);gap:16px}.career-project-timeline .role-projects{gap:12px}.company-context{font-size:9px}.career-project-timeline .role-projects .project .tile-label>.project-wordmark:first-child{font-size:21px}.career-project-timeline .search-prompt{font-size:8px}.career-project-timeline .ai-search-label{font-size:7px}.career-project-timeline .grower-caption{font-size:19px}.career-project-timeline .grower-phone{right:-17px}}
+@media(max-width:760px){.home-section{padding-top:14px}.home-section .intro h1{font-size:36px}.home-section .intro p{font-size:14px}.skills-section{margin-top:38px;scroll-margin-top:105px}.career-section{margin-top:42px;scroll-margin-top:105px}.section-heading h2{font-size:24px}.journey-heading{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:25px}.journey-heading>p{max-width:none}.career-project-timeline>.company-group{grid-template-columns:minmax(0,1fr);gap:12px;padding:25px 0 30px}.career-project-timeline>.company-group>.company-period{display:flex;gap:5px;padding-top:0}.company-period br{display:none}.career-project-timeline>.company-group::before{top:32px}.career-project-timeline>.company-group:first-child::before{top:10px}.career-project-timeline .company-heading{margin-bottom:17px}.career-project-timeline .education-step{grid-template-columns:1fr;gap:8px}.career-project-timeline .role-projects .project .tile-label>.project-wordmark:first-child{font-size:23px}.career-project-timeline .role-projects{gap:12px}.skills-section .hero-tools{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:24px}}
+@media(max-width:600px){.career-project-timeline .role-projects{grid-template-columns:minmax(0,1fr);gap:14px}.career-project-timeline .role-projects .project{height:296px}.career-project-timeline .role-projects .project.grower,.career-project-timeline .role-projects .project.finance{height:310px}.career-project-timeline .role-projects .project.analytics{height:252px}.career-project-timeline .search-showcase{padding:20px 18px 0}.career-project-timeline .search-prompt{font-size:10px}.career-project-timeline .ai-search-label{font-size:9px}.career-project-timeline .grower-phone{right:4px;width:148px}.career-project-timeline .grower-caption{font-size:23px;max-width:47%}.career-project-timeline .grower-caption small{font-size:11px}.career-project-timeline .finance-preview{width:calc(100% - 28px);margin-top:20px}.career-project-timeline .finance-dashboard-title strong{font-size:12px}.career-project-timeline .analytics-placeholder p{font-size:22px}.career-project-timeline .analytics-art{width:29%;right:5%;height:115px}.career-project-timeline .analytics-card-metric{font-size:12px}.career-project-timeline .analytics-card-metric small{display:block;margin-left:0}.career-project-timeline .company-roles{padding-left:13px}.career-project-timeline .role-step::before{left:-13px}.company-context{font-size:9px}}
+@media(max-width:380px){.home-section .intro h1{font-size:31px}.career-project-timeline{padding-left:15px}.career-project-timeline>.company-group::before{left:-20px}.career-project-timeline .role-projects .project .tile-label>.project-wordmark:first-child{font-size:21px}.career-project-timeline .grower-phone{right:-22px;width:140px}.career-project-timeline .grower-caption{font-size:20px}.career-project-timeline .analytics-art{width:24%}.career-project-timeline .analytics-placeholder p{font-size:21px}}
+.skills-section>.section-heading{display:block}
+.career-project-timeline .role-projects .grower-caption{line-height:1.35;margin-top:0}
+.career-project-timeline .role-projects .grower-caption small{line-height:1.6;margin-top:18px;max-width:145px}
+.career-project-timeline .role-projects .analytics-placeholder p{line-height:1.25;margin-top:8px}
+@media(max-width:760px){.sidebar nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:3px}.sidebar nav .navlink{justify-content:center;padding-inline:4px}.sidebar nav .resume-download{grid-column:1/-1;justify-content:center;gap:8px;margin-top:3px}.sidebar nav .resume-download .resume-format{margin-left:0}}
+@media(max-width:600px){.career-project-timeline .role-projects .grower-caption{font-size:20px;max-width:45%}.career-project-timeline .role-projects .grower-caption small{font-size:10px}.career-project-timeline .role-projects .grower-phone{width:128px;right:-6px}}
+
+/* Navigation uses one icon family; Resume is a distinct download action. */
+.sidebar nav .nav-icon{width:16px;height:16px;flex:0 0 16px;align-self:center;color:currentColor;opacity:.8}
+.sidebar nav .resume-download{position:relative;margin-top:15px;border:1px solid #cdd9ed;background:linear-gradient(115deg,#f0f5ff,#f5f0fc);color:#475f84;box-shadow:0 2px 7px #526e9810;transition:background .2s,border-color .2s,transform .2s,box-shadow .2s}
+.sidebar nav .resume-download:hover{border-color:#9cafcf;box-shadow:0 5px 15px #526e9820;transform:translateY(-1px)}
+.sidebar nav .resume-download svg{width:17px;height:17px;flex:0 0 17px}
+.sidebar nav .resume-format{padding:2px 5px;border-radius:4px;background:#ffffffa8;color:#677b99;font-size:8px;letter-spacing:.5px}
+[data-theme=dark] .sidebar nav .resume-download{border-color:#526581;background:linear-gradient(115deg,#2c3b50,#383148);color:#c2d4f0}
+[data-theme=dark] .sidebar nav .resume-format{background:#ffffff10;color:#b8c9e3}
+@media(max-width:760px){.sidebar nav .nav-icon{display:none}.sidebar nav .resume-download{margin-top:7px}.sidebar nav .resume-download svg{display:block}}
