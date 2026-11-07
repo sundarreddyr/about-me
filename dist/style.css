@@ -479,3 +479,13 @@ body.project-open{overflow:hidden}#project-dialog{box-sizing:border-box;width:mi
 [data-theme=dark] .sidebar nav .resume-download{border-color:#526581;background:linear-gradient(115deg,#2c3b50,#383148);color:#c2d4f0}
 [data-theme=dark] .sidebar nav .resume-format{background:#ffffff10;color:#b8c9e3}
 @media(max-width:760px){.sidebar nav .nav-icon{display:none}.sidebar nav .resume-download{margin-top:7px}.sidebar nav .resume-download svg{display:block}}
+/* Role growth reads as a distinct moment in each company chapter. */
+.career-project-timeline .progression-label{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid #cfc5ed;border-radius:7px;background:linear-gradient(115deg,#eee8fb,#e9f3fa);color:#65518c;font-size:11px;font-weight:650;letter-spacing:.1px;box-shadow:0 2px 6px #6e559712;white-space:nowrap}
+.career-project-timeline .progression-label svg{width:17px;height:17px;flex-shrink:0}
+.career-project-timeline .company-roles::before{background:linear-gradient(#9c87c3,var(--line));width:2px}
+.career-project-timeline .role-step:first-child::before{width:9px;height:9px;left:-19px;background:#8a72b4;border-color:#8a72b4;box-shadow:0 0 0 4px var(--bg),0 0 0 5px #cfc5e755}
+.career-project-timeline .role-step:first-child .role-heading h4{color:var(--ink);font-weight:650}
+[data-theme=dark] .career-project-timeline .progression-label{background:linear-gradient(115deg,#42364f,#303f50);border-color:#75628e;color:#ded0f4;box-shadow:0 2px 8px #00000015}
+[data-theme=dark] .career-project-timeline .role-step:first-child::before{background:#b49cd9;border-color:#b49cd9}
+.skills-section{margin-top:50px}
+@media(max-width:600px){.career-project-timeline .progression-label{font-size:10px;padding:5px 8px;gap:5px}.career-project-timeline .progression-label svg{width:15px;height:15px}.career-project-timeline .role-step:first-child::before{left:-14px}}
