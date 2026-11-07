@@ -28,7 +28,7 @@
 - Project stories should be concise first-person engineering prose: establish ownership, explain the constraint before the decision, and describe what improved.
 - Use connected short paragraphs, a comfortable reading width, and generous spacing. Avoid a technology inventory, numbered milestones, or repetitive Problem/Solution/Outcome blocks.
 - Use `<strong><em>…</em></strong>` sparingly for important numbers or achievements.
-- Livine Analytics uses the optional `story` array and `technicalNote` fields in projects.js, rendered by app.js. Other projects retain their existing bullet format until explicitly requested.
+- All five projects use the `story` array in projects.js for concise first-person prose. The shared renderer in app.js keeps Analytics highlights and its optional `technicalNote` disclosure specific to that project. Preserve each project’s natural narrative structure.
 - Keep implementation detail in the Analytics replication disclosure. Do not link the likely `bakwc/mysql_ch_replicator` repository unless the owner or reliable project evidence confirms it is the library used.
 - Analytics facts: joined Livine in 2022 as second SWE; 300+ reports/dashboards/touchpoints over 1.5 years; MySQL analytical reads moved to ClickHouse while transactions stayed on MySQL; migration latency >1 minute → 2–3 seconds.
 - The separate ~60 seconds → ~5 seconds reporting-service metric must not be attributed to that migration.
