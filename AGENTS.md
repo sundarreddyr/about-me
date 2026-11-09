@@ -1,5 +1,13 @@
 # Portfolio maintenance
 
+## Start here: durable project memory
+
+- Read `docs/PROJECT_MEMORY.md` for the complete November 9, 2026 owner handoff: approved copy, dates, metrics, ordered case-study labels, design guidance, and interaction requirements.
+- Read `docs/PROJECT_STATUS.md` for the inspected GitHub baseline, confirmed differences, and remaining reconciliation work. Distinguish required behavior from what is currently implemented.
+- Read `docs/DEPLOYMENT.md` before deployment work. This memory update alone does not authorize a website redesign, source synchronization, or publication.
+- New explicit owner direction takes precedence. The November 9 handoff supersedes older prose-story guidance, Analytics-placeholder claims, and the stale p99 claim. Preserve the verified p95 below 300 ms claim.
+- Keep memory in Git. After substantive work, update status with evidence, remaining work, and deployment outcomes; update the canonical memory when the owner changes direction. Never store credentials or rely on scratch paths as durable memory.
+
 ## Repository and deployment
 
 - This repository contains Sundar Reddy's portfolio source. Preserve the existing root README.md; the owner maintains it.
@@ -9,7 +17,7 @@
 - `.openai/hosting.json` preserves that identity and declares `dist` as the static output. Never create a replacement Site for an update.
 - This is a buildless HTML/CSS/JavaScript site. `dist/` is the editable source, not generated output. There is no dependency installation or compilation step.
 - Site changes pushed to main automatically validate and deploy to GitHub Pages once the repository Pages source is set to GitHub Actions. Pull requests validate without publishing. GitHub pushes do not deploy to the legacy ChatGPT Sites URL.
-- GitHub main is the working source of truth. Fetch it before editing. Preserve unrelated work and reconcile concurrent changes; never replace newer GitHub files with an older Sites checkout.
+- GitHub main is the durable working repository. Fetch it before editing. The November 9 handoff reports newer portfolio changes in Sites-managed source that were not verified synchronized here. Inspect both current versions before reconciliation; preserve unrelated work and never overwrite newer files blindly. GitHub and Sites have separate histories and deployment flows.
 
 ## File map
 
@@ -25,10 +33,13 @@
 
 - Preserve the established light bento style, per-project gradients, wordmarks, dark mode, and responsive layout.
 - Keep changes within the requested project or section. Do not rewrite other projects as a side effect.
-- Project stories should be concise first-person engineering prose: establish ownership, explain the constraint before the decision, and describe what improved.
-- Use connected short paragraphs, a comfortable reading width, and generous spacing. Avoid a technology inventory, numbered milestones, or repetitive Problem/Solution/Outcome blocks.
-- Use `<strong><em>…</em></strong>` sparingly for important numbers or achievements.
-- All five projects use the `story` array in projects.js for concise first-person prose. The shared renderer in app.js keeps Analytics highlights and its optional `technicalNote` disclosure specific to that project. Preserve each project’s natural narrative structure.
+- Use concise relevant keyword lines on project cards, in plain text: the exact five lines are in `docs/PROJECT_MEMORY.md` section 8. Do not use the rejected outcome sentences or filler pills.
+- Case studies use actual unordered lists with bold lead labels or concise useful headings. Preserve the story order and engineering reasoning; the exact labels and facts are in memory section 9. Lead real problems into solutions and outcomes; describe new features directly without inventing a problem.
+- The current GitHub baseline still renders `story` as paragraphs. Treat this as pending reconciliation, not the desired format. Keep Analytics' optional `technicalNote` disclosure and meaningful implementation detail.
+- Preserve Home → Career Journey → Skills → Contact, the exact title "The Journey so far", and skills heading "The tools behind the work". Resume stays a separate PDF download action. Do not restore removed navigation or redundant section labels.
+- Preserve hero copy, the Sundar Reddy wordmark, SR favicon, both themes and persistent theme selection. Keep requested gentle gradients, project wordmarks, clear contrast, readable supporting text, and consistent SVG actions.
+- Use "Trumetric.AI (part of Specbee)" linked to `https://www.specbee.com/`. Exclude "Team of 5" from portfolio copy; Finance's team of three remains supported. Exact career dates and role groupings are in memory section 7.
+- Product sketches are illustrations, not screenshots or working products. Keep "View project" plus an SVG diagonal arrow visible on every card, including on hover and keyboard focus.
 - Keep implementation detail in the Analytics replication disclosure. Do not link the likely `bakwc/mysql_ch_replicator` repository unless the owner or reliable project evidence confirms it is the library used.
 - Analytics facts: joined Livine in 2022 as second SWE; 300+ reports/dashboards/touchpoints over 1.5 years; MySQL analytical reads moved to ClickHouse while transactions stayed on MySQL; migration latency >1 minute → 2–3 seconds.
 - The separate ~60 seconds → ~5 seconds reporting-service metric must not be attributed to that migration.
@@ -38,11 +49,12 @@
 
 ## Local verification
 
-Run from the repository root:
+For website changes, run from the repository root (documentation-only changes need whitespace, link, and scope checks):
 
 ```sh
 node --check dist/app.js
 node --check dist/projects.js
+python3 scripts/check_site.py
 git diff --check
 python3 -m http.server 8000 --directory dist
 ```
