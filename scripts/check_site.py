@@ -3,6 +3,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import json
+import subprocess
+import sys
 
 root = Path('dist').resolve()
 class Page(HTMLParser):
@@ -35,3 +37,5 @@ assert manifest['project_id'] == 'appgprj_6ae46619f6508191b4ec6eaba8959134'
 assert (root / 'assets/Sundar_Reddy_Resume.pdf').read_bytes().startswith(b'%PDF-')
 assert not any(p.is_symlink() for p in root.rglob('*')), 'Do not deploy symlinks'
 print('Static assets, HTML IDs, resume, project-relative paths, and Sites identity verified.')
+
+subprocess.run([sys.executable, "scripts/version_assets.py", "--check"], check=True)

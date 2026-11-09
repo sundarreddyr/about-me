@@ -63,3 +63,9 @@ After owner approval, commit to GitHub and publish the same approved `dist/` rev
 ## Vercel design guidelines
 
 Use the saved `.agents/skills/web-design-guidelines/SKILL.md` for UI reviews and fetch its current rules before review. Owner instructions override generic guidelines. Preserve concise findings in `docs/DESIGN_REVIEW.md`.
+
+## Regression checks
+
+- Run `python3 scripts/version_assets.py` after CSS/JS edits, before checks. Content hashes include imported illustration CSS. CI rejects stale asset references.
+- Check actual copy/art bounds in every Grower scene, search typing/click/answer states and all card footers at 320, 390, 760 and 1280 widths. Matching outer dimensions alone is insufficient.
+- Mobile role dates always follow the title on a separate line; progression labels follow company names. Keep Grower caption and phone in separate grid columns.

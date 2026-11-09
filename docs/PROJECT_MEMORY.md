@@ -216,3 +216,9 @@ local-only/pending-selection notes. GA4 is deferred; keep measurement ID null.
 - Grower uses a larger, partially cropped phone to fill its illustration area.
 - Trusearch cycles through typing, a visual search click, answer placeholder lines, and citations 1/2/3. No factual answer text or network search.
 - Owner explicitly removed the pause/resume preview control. Reduced motion and hidden/offscreen guards remain.
+
+## Strict mobile review correction — 9 November 2026
+
+Supersedes the earlier 360px card direction: all cards are 400px tall with a common 76px footer allowance. Caption and phone use separate grid columns; screen contents fit all three scenes at 320/390/760/1280 widths. All mobile role dates and progression labels follow the same stacked pattern.
+
+Asset references now use content hashes, including imported illustration CSS and app.js. CI rejects stale references; live verification checks browser-used versioned URLs as well as base files. Prior outer-card-only validation missed internal overlap and warm-cache drift.
