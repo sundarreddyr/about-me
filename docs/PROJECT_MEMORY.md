@@ -209,3 +209,10 @@ rules were fetched and applied; owner content/layout preferences take precedence
 Owner selected Navy & Persimmon with selective depth and authorized publishing
 to GitHub Pages and the existing public ChatGPT site. This supersedes earlier
 local-only/pending-selection notes. GA4 is deferred; keep measurement ID null.
+
+## Card refinement — 9 November 2026
+
+- All five cards share 360px height and the same grid width; Analytics no longer spans both columns.
+- Grower uses a larger, partially cropped phone to fill its illustration area.
+- Trusearch cycles through typing, a visual search click, answer placeholder lines, and citations 1/2/3. No factual answer text or network search.
+- Owner explicitly removed the pause/resume preview control. Reduced motion and hidden/offscreen guards remain.

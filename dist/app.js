@@ -85,40 +85,43 @@ document.getElementById('full-stack').addEventListener('click', event => {
   dialog.scrollTop = 0;
   document.getElementById('close-project').focus();
 });
-let previewsPaused = false;
-const motionControl = document.createElement('button');
-motionControl.type = 'button';motionControl.className = 'motion-control';
-motionControl.textContent = 'Pause project previews';motionControl.setAttribute('aria-pressed','false');
-document.querySelector('.journey-heading').append(motionControl);
-motionControl.addEventListener('click', () => {previewsPaused = !previewsPaused;motionControl.setAttribute('aria-pressed',String(previewsPaused));motionControl.textContent = previewsPaused ? 'Resume project previews' : 'Pause project previews';});
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-// A visual search preview; live search remains on the linked HCG website.
+// Illustrative query → search click → streamed answer; no real search request.
 const searchPreviewWord = document.getElementById('search-preview-word');
 if (searchPreviewWord) {
-  const searchWords = ['hospitals', 'doctors', 'cancer care'];
-  let searchWordIndex = 0;
-  let searchPreviewVisible = true;
-  let searchWordDelay;
-  const previewObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
-    searchPreviewVisible = entries[0].isIntersecting;
-  }) : null;
-  previewObserver?.observe(searchPreviewWord.closest('.search'));
-  function showStaticSearchPreview() {
-    if (reducedMotion.matches) searchPreviewWord.textContent = 'hospitals & doctors';
-    else searchPreviewWord.textContent = searchWords[searchWordIndex];
+  const card = searchPreviewWord.closest('.search');
+  const words = ['hospitals', 'doctors', 'cancer care'];
+  let wordIndex = 0;
+  let elapsed = 0;
+  let visible = !('IntersectionObserver' in window);
+  const active = () => visible && !document.hidden && !dialog.open && !reducedMotion.matches;
+  function renderSearch() {
+    if (reducedMotion.matches) {
+      searchPreviewWord.textContent = 'hospitals & doctors';
+      card.dataset.searchStage = 'answer';
+    } else {
+      const stage = elapsed < 1600 ? 'typing' : elapsed < 2200 ? 'click' : 'answer';
+      if (card.dataset.searchStage !== stage) card.dataset.searchStage = stage;
+      const word = words[wordIndex];
+      searchPreviewWord.textContent = elapsed < 1600 ? word.slice(0, Math.floor(elapsed / 95)) : word;
+    }
+    card.dataset.previewActive = String(active());
   }
-  showStaticSearchPreview();
-  reducedMotion.addEventListener('change', showStaticSearchPreview);
-  const searchPreviewTimer = setInterval(() => {
-    if (previewsPaused || reducedMotion.matches || document.hidden || !searchPreviewVisible || dialog.open) return;
-    searchPreviewWord.classList.add('word-changing');
-    searchWordDelay = setTimeout(() => {
-      searchWordIndex = (searchWordIndex + 1) % searchWords.length;
-      searchPreviewWord.textContent = searchWords[searchWordIndex];
-      searchPreviewWord.classList.remove('word-changing');
-    }, 180);
-  }, 3000);
-  window.addEventListener('pagehide', () => {clearInterval(searchPreviewTimer);clearTimeout(searchWordDelay);previewObserver?.disconnect();}, {once:true});
+  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    renderSearch();
+  }, {threshold:0.15}) : null;
+  observer?.observe(card);
+  renderSearch();
+  const timer = setInterval(() => {
+    if (active()) {
+      elapsed += 80;
+      if (elapsed >= 6000) { elapsed = 0; wordIndex = (wordIndex + 1) % words.length; }
+    }
+    renderSearch();
+  }, 80);
+  reducedMotion.addEventListener('change', renderSearch);
+  window.addEventListener('pagehide', () => {clearInterval(timer);observer?.disconnect();}, {once:true});
 }
 
 // The phone illustration cycles through the reference's three app workflows.
@@ -127,7 +130,7 @@ if (growerPhone) {
   const scenes = [...growerPhone.querySelectorAll('.grower-screen')];
   const labels = [...growerPhone.querySelectorAll('.grower-screen-tabs span')];
   let sceneIndex = 0;
-  let phoneVisible = false;
+  let phoneVisible = !('IntersectionObserver' in window);
   let sceneTimer;
   const phoneObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     phoneVisible = entries[0].isIntersecting;
@@ -142,7 +145,7 @@ if (growerPhone) {
     clearInterval(sceneTimer);
     if (reducedMotion.matches) { showGrowerScene(0); return; }
     sceneTimer = setInterval(() => {
-      if (previewsPaused || document.hidden || !phoneVisible || dialog.open) return;
+      if (document.hidden || !phoneVisible || dialog.open) return;
       showGrowerScene((sceneIndex + 1) % scenes.length);
     }, 2800);
   }
