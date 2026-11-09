@@ -17,23 +17,47 @@ window.portfolioProjects = [
       "GitHub reviews",
       "Human-in-the-loop"
     ],
-    "bullets": [],
+    "bullets": [
+      [
+        "Architecture & delivery",
+        "Took over a largely agent-written codebase during client onboarding. Owned architecture, backend delivery, sprint planning, and coordination with clients, QA, and DevOps."
+      ],
+      [
+        "Reviewable changes",
+        "Features arrived in PRs spanning <strong>50–80 files</strong>, making review difficult. Introduced <strong>spec-driven development</strong> and changes of roughly <strong>20–25 files</strong> so each step could be understood and reviewed."
+      ],
+      [
+        "Harness Engineering",
+        "Agents lost context between sessions. Added persistent repository memory, architecture documentation, and implementation plans through <strong>Harness Engineering</strong>."
+      ],
+      [
+        "Review & QA",
+        "Reviews became a bottleneck. Added mandatory agent-assisted reviews with human oversight, developer walkthroughs, and QA checks; used agents to surface bugs and technical debt alongside feature work."
+      ],
+      [
+        "Production delivery",
+        "As the team grew, delegated more feature work while staying hands-on with critical delivery blockers and production readiness."
+      ]
+    ],
     "companyUrl": "https://www.specbee.com/",
-    "role": "Technical Lead · Team of 5",
-    "story": [
-      "I took over a largely agent-written codebase while Trusearch was onboarding clients. I owned the architecture and delivery, balancing hands-on backend work with sprint planning, client discussions, and coordination across development, QA, and DevOps.",
-      "Coding agents accelerated implementation, but features arrived as PRs spanning 50–80 files. I introduced <strong><em>spec-driven development</em></strong> and staged changes of roughly 20–25 files, making each step easier to understand and review.",
-      "Context also disappeared between sessions. My approach to <strong><em>Harness Engineering</em></strong> gave agents persistent repository memory, architecture documentation, and implementation plans to work from.",
-      "As reviews became a bottleneck, I added mandatory agent-assisted reviews with human oversight. Developer walkthroughs and QA checks tested both the generated code and the team’s understanding of it. Agent-assisted bug and technical-debt reporting helped surface issues alongside feature work.",
-      "Together, these Agentic Engineering practices gave the team a more deliberate path from generated code to production. As the team grew, I delegated more feature work while staying hands-on with critical delivery blockers."
+    "role": "Technical Lead",
+    "highlights": [
+      [
+        "20–25 files",
+        "reviewable changes, down from 50–80"
+      ],
+      [
+        "Harness Engineering",
+        "persistent context across sessions"
+      ]
     ]
   },
   {
     "id": "trusearch",
     "mark": "TS",
-    "name": "Trusearch",
+    "name": "trusearch",
     "company": "Trumetric.AI (part of Specbee)",
-    "role": "Technical Lead · Team of 5",
+    "role": "Technical Lead",
     "dates": "Apr 2026 — Present",
     "period": "Role period",
     "summary": "Privacy-first enterprise search for CMS websites, combining fast onboarding, hybrid retrieval, AI summaries, and client-controlled deployments.",
@@ -53,7 +77,32 @@ window.portfolioProjects = [
       "vLLM",
       "MCP"
     ],
-    "bullets": [],
+    "bullets": [
+      [
+        "Product ownership",
+        "Led enterprise search for CMS websites from an agent-first codebase toward production readiness. Owned architecture, client requirements, and delivery."
+      ],
+      [
+        "Privacy-first architecture",
+        "Clients needed control of their content. Kept the search engine and indexed content in client infrastructure, with a central platform for tenants, API keys, plans, and usage limits. Delivered a low-code widget builder through S3 and CloudFront."
+      ],
+      [
+        "Lexical-first onboarding",
+        "Generating every embedding upfront delayed useful search. Made <strong>about 10,000 documents searchable in about three minutes</strong> through lexical-first onboarding, with vector embeddings generated asynchronously."
+      ],
+      [
+        "Search relevance & latency",
+        "Combined BM25, HNSW dense vectors, and neural sparse retrieval with domain-specific embeddings and structural chunking. Typeahead and suggestions ran at <strong>p95 below 300 ms</strong>. Cross-encoder reranking initially added roughly <strong>10× latency</strong>; bounded the workload and added Caffeine L1 caching."
+      ],
+      [
+        "RAG & MCP",
+        "Built <strong>RAG-powered AI Overview</strong> with citations and contextual actions. Evaluated self-hosted Granite through vLLM on EC2 and built a tenant-scoped <strong>MCP server</strong> for search and analytics within Claude."
+      ],
+      [
+        "Agentic search & client delivery",
+        "Explored agentic Query DSL generation from index mappings and sample documents. Guided marketing on GEO and used client onboarding and go-live feedback to shape product decisions."
+      ]
+    ],
     "liveUrl": "https://www.hcghospitals.com/",
     "liveLabel": "Explore my live work at HCG Hospitals",
     "companyUrl": "https://www.specbee.com/",
@@ -64,13 +113,15 @@ window.portfolioProjects = [
         "url": "https://huggingface.co/abhinand/MedEmbed-small-v0.1"
       }
     ],
-    "story": [
-      "I led Trusearch from an agent-first codebase toward production readiness, owning architecture, client requirements, and delivery. The goal was enterprise search that clients could embed in their CMS while retaining control of their content.",
-      "Privacy shaped the architecture: I kept the search engine and indexed content in client infrastructure, with a central platform for tenants, API keys, plans, and usage limits. A low-code widget builder served JavaScript and CSS through S3 and CloudFront to simplify integration.",
-      "New clients needed useful search before every embedding was ready. I led lexical-first onboarding that made <strong><em>about 10,000 documents searchable in three minutes</em></strong>, while vector embeddings were generated asynchronously.",
-      "For relevance, I combined BM25, HNSW dense vectors, and neural sparse retrieval, with domain-specific embeddings and structural chunking. Typeahead and suggestions ran at <strong><em>p95 below 300 ms</em></strong>. Cross-encoder reranking initially added roughly 10× latency; I bounded the workload and added Caffeine L1 caching to keep repeated searches responsive.",
-      "I built <strong><em>RAG-powered AI Overview</em></strong> to summarize retrieved results with citations and contextual actions. I also evaluated self-hosted Granite through vLLM on EC2, and built a tenant-scoped <strong><em>MCP server</em></strong> so clients could search content and query analytics within Claude.",
-      "Beyond delivery, I explored agentic Query DSL generation using index mappings and sample documents, and guided marketing on Generative Engine Optimization. I worked with clients through onboarding and go-live to turn integration feedback into product decisions."
+    "highlights": [
+      [
+        "~3 min",
+        "to make 10,000 documents searchable"
+      ],
+      [
+        "p95 <300 ms",
+        "typeahead and suggestions"
+      ]
     ]
   },
   {
@@ -92,7 +143,28 @@ window.portfolioProjects = [
       "SciPy",
       "Scikit"
     ],
-    "bullets": [],
+    "bullets": [
+      [
+        "End-to-end ownership",
+        "Built the Grower App with Flutter and Quarkus. Owned requirements, design, delivery, on-site rollout, and user training."
+      ],
+      [
+        "BLE weighing",
+        "Weighing required one person to read the scale and another to record results. Used BLE readings roughly every <strong>200 ms</strong> and sliding-window standard deviation to identify stable weight, reducing the task from <strong>two operators to one</strong> while the phone stayed in a pocket."
+      ],
+      [
+        "Offline sync & concurrency",
+        "Unreliable farm connectivity interrupted data capture. Stored readings locally and synchronized in batches when connected. Supported <strong>about three seconds per bird</strong>, 10+ concurrent operators, and up to <strong>50,000 birds per farm per day</strong>."
+      ],
+      [
+        "Analytics & projections",
+        "Farmers previously waited until evening or the next day for analytics. Made results available immediately after synchronization and used a <strong>Gompertz growth model</strong> with SciPy curve fitting for farm-specific weekly bodyweight targets."
+      ],
+      [
+        "Field implementation",
+        "Refined weighing, synchronization, and user workflows through on-site implementation, training, and client feedback."
+      ]
+    ],
     "companyUrl": "https://www.livine.io/",
     "projectUrl": "https://www.livine.io/grower-app",
     "inlineLinks": [
@@ -105,12 +177,15 @@ window.portfolioProjects = [
     "liveLabel": "Explore the Livine Grower App",
     "videoUrl": "https://www.youtube.com/watch?v=9W_Rfoq-JNA",
     "videoLabel": "Watch the app walkthrough",
-    "story": [
-      "I owned the Grower App from requirements and design through on-site rollout and user training. Built with Flutter and Quarkus, it brought breeder-farm weighing, analytics, and growth projections into one workflow.",
-      "Weighing depended on one person reading the scale and another recording results. I connected BLE scales to a phone that could stay in the operator’s pocket, using sliding-window standard deviation to identify stable weights from readings roughly every 200 ms. That reduced the task from <strong><em>two people to one</em></strong>.",
-      "Farm connectivity was unreliable, so weighing had to continue offline. I stored readings locally and synchronized them in batches when the connection returned. The workflow supported <strong><em>about three seconds per bird</em></strong>, with 10+ concurrent operators processing up to 50,000 birds per farm per day.",
-      "Collecting data faster mattered only if farmers could use it sooner. I made analytics available immediately after synchronization, replacing an evening or next-day wait. A Gompertz growth model with SciPy curve fitting produced farm-specific weekly body-weight targets.",
-      "On-site implementation and ongoing client feedback helped me refine the workflow around how operators actually worked, from handling scale readings to troubleshooting synchronization."
+    "highlights": [
+      [
+        "2 → 1",
+        "operators needed for weighing"
+      ],
+      [
+        "~3 sec",
+        "per bird, with offline capture"
+      ]
     ]
   },
   {
@@ -132,13 +207,34 @@ window.portfolioProjects = [
       "AWS Textract",
       "Claude on Bedrock"
     ],
-    "bullets": [],
+    "bullets": [
+      [
+        "Accounting module ownership",
+        "ERP purchases and sales required duplicate entry in accounting software. Led a <strong>team of three</strong> to build the accounting module from scratch, owning requirements, solution design, sprint planning, and delivery."
+      ],
+      [
+        "Event-driven journal entries",
+        "Removed duplicate entry for those transactions by consuming purchase and sale events asynchronously through <strong>SNS/SQS</strong> and generating journal entries, eliminating re-entry into software such as Tally."
+      ],
+      [
+        "Bank statement extraction",
+        "Bank statements created another manual processing step. Used <strong>Textract and Claude on Bedrock</strong> to extract transactions from PDFs and generate payment and receipt entries."
+      ],
+      [
+        "Payment integrations",
+        "Built a pluggable provider SPI for Greenorange, Razorpay, and other webhooks. <strong>Signature verification and idempotency</strong> validated incoming events and prevented duplicate receipt entries."
+      ]
+    ],
     "companyUrl": "https://www.livine.io/",
-    "story": [
-      "ERP purchases and sales still needed to be entered again in accounting software. I led a team of three to build Livine Finance from scratch, owning client requirements, solution design, sprint planning, and delivery.",
-      "To connect operations with accounting, I used AWS SNS and SQS to consume purchase and sale events asynchronously and generate journal entries. This <strong><em>removed manual re-entry into Tally</em></strong> for those transactions.",
-      "Bank statements created another manual step. I built a cost-effective alternative to third-party processing with Textract and Claude on Bedrock, extracting transactions from PDFs to create payment and receipt entries.",
-      "Payment providers needed the same automation without tightly coupling the module to each integration. I designed a pluggable provider SPI for webhooks from Greenorange, Razorpay, and others. Signature verification validated incoming events, while idempotency prevented duplicate receipt entries."
+    "highlights": [
+      [
+        "Team of 3",
+        "built the accounting module"
+      ],
+      [
+        "Event-driven",
+        "ERP transactions to journal entries"
+      ]
     ]
   },
   {
@@ -154,14 +250,38 @@ window.portfolioProjects = [
       "Python / FastAPI",
       "Java / Quarkus"
     ],
-    "bullets": [],
-    "story": [
-      "I joined Livine in <strong><em>2022 as its second SWE</em></strong>, with the ERP’s analytics engine as my first major assignment. Over the next <strong><em>1.5 years</em></strong>, I built 300+ reports, dashboards, and analytical touchpoints spanning operational reporting, trends, and predictions.",
-      "The work ranged from SQL reports in Metabase and a custom builder to Python services built with FastAPI and SQLAlchemy. Pandas, Openpyxl, and SciPy supported the data processing, Excel reporting, and trend predictions behind them.",
-      "As more clients came onboard, keeping that report inventory consistent became a challenge of its own. Updates and deletions needed to reach the right tenants, while each division needed its own selection of reports. I built <strong><em>Livine Central</em></strong> to manage report versions and tenant configurations in one place, then synchronize the relevant changes across deployments.",
-      "Growing data volumes brought another constraint. Analytical queries on MySQL were taking over a minute and beginning to affect transactional writes. I led the migration of analytical reads to <strong><em>ClickHouse</em></strong>, bringing report loads down to <strong><em>2–3 seconds</em></strong> while keeping transactions on MySQL.",
-      "For recurring calculations, I used pre-computed tables populated by overnight jobs and selected jobs running <strong><em>every ten minutes</em></strong>. Execution-status tracking and alerts through Amazon SNS and SES helped surface failed or missed runs. Alongside this, I worked on query optimization, views, and partitioning across the data layer."
+    "bullets": [
+      [
+        "Analytics foundation",
+        "Joined Livine in <strong>2022 as its second SWE</strong>. Built <strong>300+ reports, dashboards, and analytical touchpoints over 1.5 years</strong>, spanning operational reporting, trends, and predictions."
+      ],
+      [
+        "Reporting services",
+        "Built SQL reports in Metabase and a custom reporting builder, plus Python services with FastAPI and SQLAlchemy. Used Pandas, Openpyxl, and SciPy for data processing, Excel reporting, and predictions."
+      ],
+      [
+        "Multi-tenant report management",
+        "Report updates and deletions needed to reach the right tenants while preserving division-specific selections. Built <strong>Livine Central</strong> to manage versions and tenant configurations, then synchronize relevant changes across deployments."
+      ],
+      [
+        "OLAP migration",
+        "Analytical queries on MySQL exceeded <strong>one minute</strong> and affected transactional writes. Moved analytical reads to <strong>ClickHouse</strong>, reducing report loads to <strong>2–3 seconds</strong> while transactions stayed on MySQL."
+      ],
+      [
+        "Scheduled calculations",
+        "Used pre-computed tables populated by overnight jobs and selected jobs every <strong>ten minutes</strong>. Added execution-status tracking and SNS/SES alerts for failed or missed runs, alongside query optimization, views, and partitioning."
+      ]
     ],
-    "technicalNote": "That separation also meant adapting how we handled changing data. I made targeted changes to <code>mysql_ch_replicator</code> for replication and handled updates and deletions through new versioned records in our ClickHouse data model."
+    "technicalNote": "That separation also meant adapting how we handled changing data. I made targeted changes to <code>mysql_ch_replicator</code> for replication and handled updates and deletions through new versioned records in our ClickHouse data model.",
+    "highlights": [
+      [
+        "300+",
+        "analytics touchpoints"
+      ],
+      [
+        ">1 min → 2–3 sec",
+        "analytical report loads"
+      ]
+    ]
   }
 ];

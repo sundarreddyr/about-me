@@ -1,5 +1,24 @@
 # Portfolio deployment
 
+## Source authority and release contract
+
+GitHub `sundarreddyr/about-me` is the sole source of truth. Both GitHub Pages and
+the existing ChatGPT Site must publish the same approved `dist/` revision.
+Record the GitHub commit SHA and verify both hosts against that checkout.
+Sites-managed Git preserves deployment provenance, not an alternate source of
+portfolio design or content. Never replace GitHub source with a newer Sites
+design without an explicit owner request.
+
+The owner approved Navy & Persimmon, selective depth, and publication on 9 November 2026. Analytics remains deferred.
+The desired CI/CD release includes both hosts. The current Actions workflow
+actually deploys Pages and checks Sites for drift; automatic deployment to Sites
+is not implemented because the available integration does not expose a supported
+unattended Actions credential/API. Until that capability exists, complete the
+supported Sites publication separately from the same GitHub revision, and report
+the release as incomplete if either target fails. Do not use browser automation
+or store account session credentials in Actions to bypass this limitation.
+
+
 ## GitHub Pages (primary)
 
 The public repository uses free GitHub Pages and standard Ubuntu Actions runners. No ChatGPT subscription, custom domain, third-party hosting account, or personal access token is required. GitHub's usage limits and terms still apply; no provider promises perpetual free hosting.
@@ -49,7 +68,7 @@ For each ChatGPT-managed update:
 1. Fetch GitHub main and validate the final site files.
 2. Push to GitHub and confirm the Pages deployment succeeded.
 3. Read the Sites workflow, fetch the existing Site's audience and latest source, obtain fresh repository access, and open its checkout.
-4. Reconcile changes, copy the same portfolio files, validate, push the Sites source, package static output, save a version, and deploy that version. Preserve public access and the existing project ID. Do not push GitHub history over Sites history.
+4. Apply the approved GitHub revision while preserving unrelated Sites configuration. Validate, push the matching Sites source, package static output, save a version, and deploy that version. Preserve public access and the existing project ID. Do not push GitHub history over Sites history.
 5. Verify the live mirror with `python3 scripts/verify_live.py https://sundar-reddy-portfolio.sundarreddy022.chatgpt.site/`. Report its saved version and deployment result separately. Rerun the GitHub workflow if a refreshed mirror check is desired.
 
 As documented November 7, 2026, OpenAI says hosting is free through December 31, 2026; metering and overages above the plan allowance start January 1, 2027. This is not a promise about behavior after subscription cancellation. Recheck current terms before continuing the mirror after the free period; do not authorize charges automatically. The GitHub Pages site is independent of ChatGPT.

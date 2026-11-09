@@ -11,7 +11,7 @@ parser.add_argument('url')
 parser.add_argument('--attempts', type=int, default=1)
 parser.add_argument('--allow-drift', action='store_true')
 args = parser.parse_args()
-paths = ['index.html', 'app.js', 'projects.js', 'style.css', 'favicon.svg', 'assets/Sundar_Reddy_Resume.pdf']
+paths = ['index.html', 'app.js', 'projects.js', 'style.css', 'illustrations.css', 'analytics-config.js', 'analytics.js', 'favicon.svg', 'assets/icons/aws.svg', 'assets/icons/aws-dark.svg', 'assets/Sundar_Reddy_Resume.pdf']
 errors = []
 for attempt in range(args.attempts):
     errors = []

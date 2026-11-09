@@ -2,13 +2,10 @@ const projects = window.portfolioProjects;
 const dialog = document.getElementById('project-dialog');
 const dialogContent = document.getElementById('dialog-content');
 let projectTrigger;
-let dialogCloseTimer;
 function closeDetails() {
-  if (!dialog.open || dialog.classList.contains('is-closing')) return;
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { dialog.close(); return; }
-  dialog.classList.add('is-closing');
-  dialogCloseTimer = setTimeout(() => dialog.close(), 160);
+  if (dialog.open) dialog.close();
 }
+
 function resumeLink(text, url) {
   return url ? `<a class="resume-link" href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>` : text;
 }
@@ -18,13 +15,33 @@ function linkedProjectText(text, links = []) {
 function openProject(id, trigger) {
   const p = projects.find(project => project.id === id);
   if (!p) return;
-  clearTimeout(dialogCloseTimer);
-  dialog.classList.remove('stack-dialog', 'is-closing');
-  document.getElementById('dialog-category').textContent = 'SELECTED WORK';
+  dialog.classList.remove('stack-dialog');
+  document.getElementById('dialog-category').textContent = 'Project details';
   projectTrigger = trigger || document.querySelector(`[data-project="${id}"]`);
-  dialogContent.innerHTML = `<header class="project-dialog-header"><div class="detail-head"><div><h2 id="project-dialog-title">${resumeLink(p.name, p.projectUrl)}</h2><p class="company">${resumeLink(p.company, p.companyUrl)}</p></div></div><p class="dialog-summary">${p.summary}</p>${p.draft || p.story ? '' : `<div class="dialog-meta"><span>${p.role}</span><span>${p.period}: ${p.dates}</span></div>`}${p.liveUrl ? `<a class="dialog-live-link" href="${p.liveUrl}" target="_blank" rel="noopener noreferrer">${p.liveLabel} <span aria-hidden="true">↗</span></a>` : ''}${p.videoUrl ? `<a class="dialog-live-link secondary-live-link" href="${p.videoUrl}" target="_blank" rel="noopener noreferrer">${p.videoLabel} <span aria-hidden="true">↗</span></a>` : ''}</header>${p.story ? `<article class="analytics-story" aria-label="${p.name} story">${p.id === 'analytics' ? `<div class="analytics-highlights"><div><strong><em>300+</em></strong><span>analytics touchpoints</span></div><div><strong><em>&gt;1 min → 2–3 sec</em></strong><span>analytical report loads</span></div></div>` : ''}${p.story.map(text => `<p>${linkedProjectText(text, p.inlineLinks)}</p>`).join('')}${p.technicalNote ? `<details class="analytics-technical"><summary>Under the hood · replication</summary><p>${p.technicalNote}</p></details>` : ''}</article>` : ''}${p.bullets.length ? `<ul class="project-bullets">${p.bullets.map(([label,text])=>`<li><strong>${label}.</strong> ${linkedProjectText(text, p.inlineLinks)}</li>`).join('')}</ul>` : ''}${p.stack.length ? `<section class="dialog-stack" aria-label="Technology stack"><h3>Stack</h3><div class="tags">${p.stack.map(t=>`<span>${t}</span>`).join('')}</div></section>` : ''}`;
+  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
+  dialogContent.innerHTML = `
+    <header class="project-dialog-header">
+      <div class="detail-head"><div>
+        <h2 id="project-dialog-title">${resumeLink(p.name, p.projectUrl)}</h2>
+        <p class="company">${resumeLink(p.company, p.companyUrl)}</p>
+      </div></div>
+      <p class="dialog-summary">${p.summary}</p>
+      ${p.liveUrl ? `<a class="dialog-live-link" href="${p.liveUrl}" target="_blank" rel="noopener noreferrer">${p.liveLabel} ${arrow}</a>` : ''}
+      ${p.videoUrl ? `<a class="dialog-live-link secondary-live-link" href="${p.videoUrl}" target="_blank" rel="noopener noreferrer">${p.videoLabel} ${arrow}</a>` : ''}
+    </header>
+    <article class="project-story" aria-label="${p.name} story">
+      <div class="project-highlights" aria-label="Project highlights">
+        ${p.highlights.map(([value, label]) => `<div><strong>${value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')}</strong><span>${label}</span></div>`).join('')}
+      </div>
+      <ul class="project-bullets">
+        ${p.bullets.map(([label, text]) => `<li><strong>${label}:</strong> ${linkedProjectText(text, p.inlineLinks)}</li>`).join('')}
+      </ul>
+      ${p.technicalNote ? `<details class="analytics-technical"><summary>Under the hood · replication</summary><p>${p.technicalNote}</p></details>` : ''}
+    </article>
+    ${p.stack.length ? `<section class="dialog-stack" aria-label="Technology stack"><h3>Stack</h3><div class="tags">${p.stack.map(t => `<span>${t}</span>`).join('')}</div></section>` : ''}`;
   if (!dialog.open) dialog.showModal();
   document.body.classList.add('project-open');
+  document.dispatchEvent(new CustomEvent('portfolio:project-open', {detail:{project_id:p.id}}));
   dialog.scrollTop = 0;
   document.getElementById('close-project').focus();
 }
@@ -35,7 +52,7 @@ document.querySelectorAll('[data-project]').forEach(card => {
 document.getElementById('close-project').addEventListener('click', closeDetails);
 dialog.addEventListener('cancel', event => { event.preventDefault(); closeDetails(); });
 dialog.addEventListener('click', event => {if(event.target === dialog){const r=dialog.getBoundingClientRect();if(event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDetails();}});
-dialog.addEventListener('close', () => {clearTimeout(dialogCloseTimer);dialog.classList.remove('is-closing');document.body.classList.remove('project-open');projectTrigger?.focus({preventScroll:true});});
+dialog.addEventListener('close', () => {document.body.classList.remove('project-open');document.dispatchEvent(new CustomEvent('portfolio:project-close'));projectTrigger?.focus({preventScroll:true});});
 // Keep existing shared project anchors useful without adding bottom detail sections.
 function openLinkedProject(){const id=location.hash.slice(1);if(projects.some(p=>p.id===id))openProject(id);}
 window.addEventListener('hashchange',openLinkedProject);
@@ -58,32 +75,23 @@ theme.addEventListener('click', () => {
 document.getElementById('year').textContent=new Date().getFullYear();
 
 document.getElementById('full-stack').addEventListener('click', event => {
-  clearTimeout(dialogCloseTimer);
-  dialog.classList.remove('is-closing');
+
   dialog.classList.add('stack-dialog');
   projectTrigger = event.currentTarget;
-  document.getElementById('dialog-category').textContent = 'TOOLS & PRACTICE';
-  dialogContent.innerHTML = `<header class="project-dialog-header"><h2 id="project-dialog-title">The full stack.</h2><p class="dialog-summary">Languages, infrastructure, and engineering practices I work with.</p></header><div class="stack-dialog-body">${document.getElementById('full-stack-content').innerHTML}</div>`;
+  document.getElementById('dialog-category').textContent = 'Skills & tools';
+  dialogContent.innerHTML = `<header class="project-dialog-header"><h2 id="project-dialog-title">The full stack</h2><p class="dialog-summary">Languages, infrastructure, and engineering practices I work with.</p></header><div class="stack-dialog-body">${document.getElementById('full-stack-content').innerHTML}</div>`;
   dialog.showModal();
   document.body.classList.add('project-open');
   dialog.scrollTop = 0;
   document.getElementById('close-project').focus();
 });
+let previewsPaused = false;
+const motionControl = document.createElement('button');
+motionControl.type = 'button';motionControl.className = 'motion-control';
+motionControl.textContent = 'Pause project previews';motionControl.setAttribute('aria-pressed','false');
+document.querySelector('.journey-heading').append(motionControl);
+motionControl.addEventListener('click', () => {previewsPaused = !previewsPaused;motionControl.setAttribute('aria-pressed',String(previewsPaused));motionControl.textContent = previewsPaused ? 'Resume project previews' : 'Pause project previews';});
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
-  }), {threshold: 0.2});
-  document.querySelectorAll('.section-divider, .company-group').forEach(el => observer.observe(el));
-}
-theme.addEventListener('click', () => {
-  if (reducedMotion.matches) return;
-  theme.classList.remove('theme-animate');
-  void theme.offsetWidth;
-  theme.classList.add('theme-animate');
-});
-theme.addEventListener('animationend', () => theme.classList.remove('theme-animate'));
-
 // A visual search preview; live search remains on the linked HCG website.
 const searchPreviewWord = document.getElementById('search-preview-word');
 if (searchPreviewWord) {
@@ -102,7 +110,7 @@ if (searchPreviewWord) {
   showStaticSearchPreview();
   reducedMotion.addEventListener('change', showStaticSearchPreview);
   const searchPreviewTimer = setInterval(() => {
-    if (reducedMotion.matches || document.hidden || !searchPreviewVisible || dialog.open) return;
+    if (previewsPaused || reducedMotion.matches || document.hidden || !searchPreviewVisible || dialog.open) return;
     searchPreviewWord.classList.add('word-changing');
     searchWordDelay = setTimeout(() => {
       searchWordIndex = (searchWordIndex + 1) % searchWords.length;
@@ -134,7 +142,7 @@ if (growerPhone) {
     clearInterval(sceneTimer);
     if (reducedMotion.matches) { showGrowerScene(0); return; }
     sceneTimer = setInterval(() => {
-      if (document.hidden || !phoneVisible || dialog.open) return;
+      if (previewsPaused || document.hidden || !phoneVisible || dialog.open) return;
       showGrowerScene((sceneIndex + 1) % scenes.length);
     }, 2800);
   }

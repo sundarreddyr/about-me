@@ -1,78 +1,64 @@
 # Portfolio maintenance
 
-## Start here: durable project memory
+## Start here
 
-- Read `docs/PROJECT_MEMORY.md` for the complete November 9, 2026 owner handoff: approved copy, dates, metrics, ordered case-study labels, design guidance, and interaction requirements.
-- Read `docs/PROJECT_STATUS.md` for the inspected GitHub baseline, confirmed differences, and remaining reconciliation work. Distinguish required behavior from what is currently implemented.
-- Read `docs/DEPLOYMENT.md` before deployment work. This memory update alone does not authorize a website redesign, source synchronization, or publication.
-- New explicit owner direction takes precedence. The November 9 handoff supersedes older prose-story guidance, Analytics-placeholder claims, and the stale p99 claim. Preserve the verified p95 below 300 ms claim.
-- Keep memory in Git. After substantive work, update status with evidence, remaining work, and deployment outcomes; update the canonical memory when the owner changes direction. Never store credentials or rely on scratch paths as durable memory.
+- GitHub `sundarreddyr/about-me` is the source of truth. Fetch main and inspect Git status before editing. Preserve unrelated local and remote work.
+- Read `docs/PROJECT_MEMORY.md` for current owner decisions and facts. `docs/PALETTE_OPTIONS.md` records pending visual options; `docs/ANALYTICS.md` records GitHub-only tracking setup. Read `docs/PROJECT_STATUS.md` for the current review/deployment state. Consult `docs/DEPLOYMENT.md` only for release work.
+- Owner approved Navy & Persimmon with selective depth and publication to both hosts on 9 November 2026. Analytics is deferred and must remain disabled.
+- Preserve root `README.md`, the owner-supplied resume, and `.openai/hosting.json` project identity. Never create a replacement Site.
+- Update these concise canonical documents after meaningful decisions. The full historical handoff is archived under `docs/archive/`; do not load it routinely or restore superseded instructions.
 
-## Repository and deployment
+## Implementation map
 
-- This repository contains Sundar Reddy's portfolio source. Preserve the existing root README.md; the owner maintains it.
-- Primary hosting: GitHub Pages, published by `.github/workflows/portfolio.yml`. Obtain its actual live URL from the successful `github-pages` deployment. Expected project path: https://sundarreddyr.github.io/about-me/.
-- Legacy mirror for old resumes: https://sundar-reddy-portfolio.sundarreddy022.chatgpt.site/
-- Existing Sites project: `appgprj_6ae46619f6508191b4ec6eaba8959134`.
-- `.openai/hosting.json` preserves that identity and declares `dist` as the static output. Never create a replacement Site for an update.
-- This is a buildless HTML/CSS/JavaScript site. `dist/` is the editable source, not generated output. There is no dependency installation or compilation step.
-- Site changes pushed to main automatically validate and deploy to GitHub Pages once the repository Pages source is set to GitHub Actions. Pull requests validate without publishing. GitHub pushes do not deploy to the legacy ChatGPT Sites URL.
-- GitHub main is the durable working repository. Fetch it before editing. The November 9 handoff reports newer portfolio changes in Sites-managed source that were not verified synchronized here. Inspect both current versions before reconciliation; preserve unrelated work and never overwrite newer files blindly. GitHub and Sites have separate histories and deployment flows.
+Buildless HTML/CSS/JavaScript: `dist/` is editable source, not generated output.
 
-## File map
+- `dist/index.html`: page, career groups, cards, keyword footers, skills, contact.
+- `dist/projects.js`: case-study summaries, labeled bullets, highlights, stack, links.
+- `dist/app.js`: shared dialog renderer, navigation, theme persistence, illustrative animations.
+- `dist/style.css`: palette/type tokens, layout, components, responsive behavior.
+- `dist/assets/icons/`: authentic technology assets; preserve source/license notices.
+- `dist/assets/Sundar_Reddy_Resume.pdf`: replace only with an owner-approved revision.
 
-- `dist/index.html`: page layout, introduction, skills, career, contact, and project cards.
-- `dist/projects.js`: project content stored in `window.portfolioProjects`.
-- `dist/app.js`: project dialogs, theme, navigation, and illustrative animations.
-- `dist/style.css`: shared styling, responsive layouts, and dark mode.
-- `dist/assets/Sundar_Reddy_Resume.pdf`: downloadable resume. Replace only with an owner-supplied or approved revision.
-- `dist/assets/icons/`: local icons and their source/license notices. Retain the notices.
-- `dist/favicon.svg`: site icon.
+## Design contract
 
-## Content and design
+- Optimize for immediate understanding of career progression and projects, followed by easy focused reading. Preserve hero wording and put the career journey near the first screen. Use spacing, weight, and grouping instead of extra labels, badges, or decoration.
+- Approved palette: white `#fcfdff`, navy `#2f4156`, persimmon `#b9472e`; dark accent `#efa38e`. White-ish neutral surfaces dominate; sky-blue washes are restrained. Original brand-logo colors are permitted. Preserve selective depth; do not restore all-card shadows.
+- Orange signals current/interactive/emphasized elements. Keep reading text and project names neutral. Maintain readable contrast in both themes.
+- Exactly two UI families: DM Sans for body, Manrope for headings. Exactly four size tokens: 12px metadata, 16px body, 24px titles/highlights, 32px hero/name. Do not add local font sizes or a third family. Simplify illustration microcopy rather than making text tiny.
+- Use one card-title component for all five projects: matching size, weight split, alignment, and spacing; preserve lowercase `trusearch`. No decorative stars, arrows, or plus signs attached to titles. Use a consistent circular SVG open-arrow action so it reads as opening a case study, not adding an item.
+- Latest direction: 70-75% neutral white-ish surfaces, quiet gray separators, one hero accent for project names/links/selected metrics/actions, selective neumorphism only on a few interactive controls. Preserve search/Grower animation, with pause and reduced-motion support. New reference-inspired options are Navy/Persimmon, Sunlight/Raspberry, and Sunny Beach Day; the owner selected Navy & Persimmon.
+- Use selective neumorphism: flat project/skills/contact surfaces, inset search and theme controls, occasional raised actions, one light direction, crisp neutral text and visible focus. Keep case-study reading surfaces nearly flat. `data-treatment="flat"` disables soft elevation for comparison.
+- Retain the approved GitHub card concepts: repository artifacts, search preview, Grower phone scenes, Finance dashboard, Analytics graphic. Illustrations are not screenshots or working products. Permit focused simplification for legibility and the type/color constraints.
+- Replace repeated company names at card bottoms with **at most three plain-text keyword phrases**. Exact current phrases are in project memory. Reserve footer space; illustrations must not overlap keywords.
+- Restore/use the authentic local AWS wordmark asset, not the generic cloud glyph. Technology icons keep authentic brand colors as an explicit UI-palette exception; keep authentic silhouettes and source/license notices.
+- One company-heading pattern. No unique Trumetric category subtitle. Every employer has an inner role rail and explicit role dates, including single-role Trumetric. Show "Role progression" for actual multi-role groups.
+- Company date ranges stay on one line. At narrow widths move the complete range above company content. Align role dates right where space permits. Do not confuse tenure, role dates, and project dates.
+- Navigation: Home → Career Journey → Skills → Contact. Preserve "The Journey so far", "The tools behind the work", "Say Hi", prominent email, SR favicon, and separate Resume PDF action.
 
-- Preserve the established light bento style, per-project gradients, wordmarks, dark mode, and responsive layout.
-- Keep changes within the requested project or section. Do not rewrite other projects as a side effect.
-- Use concise relevant keyword lines on project cards, in plain text: the exact five lines are in `docs/PROJECT_MEMORY.md` section 8. Do not use the rejected outcome sentences or filler pills.
-- Case studies use actual unordered lists with bold lead labels or concise useful headings. Preserve the story order and engineering reasoning; the exact labels and facts are in memory section 9. Lead real problems into solutions and outcomes; describe new features directly without inventing a problem.
-- The current GitHub baseline still renders `story` as paragraphs. Treat this as pending reconciliation, not the desired format. Keep Analytics' optional `technicalNote` disclosure and meaningful implementation detail.
-- Preserve Home → Career Journey → Skills → Contact, the exact title "The Journey so far", and skills heading "The tools behind the work". Resume stays a separate PDF download action. Do not restore removed navigation or redundant section labels.
-- Preserve hero copy, the Sundar Reddy wordmark, SR favicon, both themes and persistent theme selection. Keep requested gentle gradients, project wordmarks, clear contrast, readable supporting text, and consistent SVG actions.
-- Use "Trumetric.AI (part of Specbee)" linked to `https://www.specbee.com/`. Exclude "Team of 5" from portfolio copy; Finance's team of three remains supported. Exact career dates and role groupings are in memory section 7.
-- Product sketches are illustrations, not screenshots or working products. Keep "View project" plus an SVG diagonal arrow visible on every card, including on hover and keyboard focus.
-- Keep implementation detail in the Analytics replication disclosure. Do not link the likely `bakwc/mysql_ch_replicator` repository unless the owner or reliable project evidence confirms it is the library used.
-- Analytics facts: joined Livine in 2022 as second SWE; 300+ reports/dashboards/touchpoints over 1.5 years; MySQL analytical reads moved to ClickHouse while transactions stayed on MySQL; migration latency >1 minute → 2–3 seconds.
-- The separate ~60 seconds → ~5 seconds reporting-service metric must not be attributed to that migration.
-- Versioned records for updates/deletes were this implementation's choice, not a claim that ClickHouse cannot update/delete.
-- Keep unsupported metrics, cost savings, and unverified claims out. Ask for missing facts when necessary.
-- Preserve accessibility: native dialog behavior, keyboard closure/focus restoration, readable contrast, accessible controls, reduced-motion support, and mobile layout.
+## Case-study writing and facts
 
-## Local verification
+- Render actual unordered lists with bold lead labels. Start relevant bullets with the real problem, then the engineering decision and result. Describe new features directly; do not invent a problem or metric. Preserve story order and useful depth.
+- Give each project one or two supported hero highlights using one shared layout. Follow with bullets, optional technical disclosure, then stack. Keep useful product and walkthrough links.
+- Use "Trumetric.AI (part of Specbee)" linked to `https://www.specbee.com/`. Exclude "Team of 5"; Finance's team of three is supported.
+- Preserve Trusearch's **p95 below 300 ms**. Never substitute stale p99 claims. Analytics' **>1 minute → 2–3 seconds** refers to the MySQL-to-ClickHouse migration; do not conflate it with other reporting-service benchmarks.
+- Keep Analytics' replication technical disclosure. Versioned updates/deletes describe this implementation, not a ClickHouse limitation. Do not guess the replication library's upstream URL.
+- Read the current supplied resume before resume-based factual changes. Flag substantive professional updates for other profiles, but do not modify/publish them without authorization.
 
-For website changes, run from the repository root (documentation-only changes need whitespace, link, and scope checks):
+## Validation and local review
 
-```sh
-node --check dist/app.js
-node --check dist/projects.js
-python3 scripts/check_site.py
-git diff --check
-python3 -m http.server 8000 --directory dist
-```
+For site changes, run JavaScript syntax checks, `python3 scripts/check_site.py`, and `git diff --check`. If `node` is unavailable in the shell, use the available Node runtime parser and record that substitution.
 
-Open the displayed local URL in an available browser. Check the changed card and dialog, replication disclosure when relevant, closing/reopening, light/dark themes, and a narrow mobile width. Confirm the resume and local assets still load. Stop the preview server when finished. In a managed Sites environment, follow its preview instructions instead of starting a separate server.
+Preview with `python3 -m http.server 8000 --bind 127.0.0.1 --directory dist`.
+Keep it running during the owner's review; stop it when that review ends.
 
-## GitHub Pages CI/CD
+Check changed sections in light/dark themes and desktop/intermediate/narrow widths. Verify typography remains within four sizes/two families, footer keywords fit, dates stay intact, controls/focus/contrast are clear, dialogs open/close via button/Escape/backdrop and restore focus, background scrolling locks, reduced motion remains supported, and local assets/resume load. Report limits accurately; viewport checks are not physical-device testing.
 
-Read `docs/DEPLOYMENT.md` for initial setup, Actions status, and rollback. Push approved site edits to main; wait for validation, Pages deployment, and live file verification. Report the actual deployed URL and run URL. The separate ChatGPT mirror check only compares files and reports drift; it does not publish and is not a guarantee of mirror freshness. Do not modify the root README.md.
+## Release contract
 
-## Keeping the legacy ChatGPT Site updated
+Analytics is authorized for GitHub Pages only. Keep the hostname/path gates, opt-out handling, and missing-ID disable behavior. Do not enable it on Sites, local previews, comparison pages, or iframe previews. A real owner-supplied GA4 ID and live verification are still required.
 
-1. Keep both sites updated when making portfolio changes through ChatGPT while Sites hosting remains free. Do not set up paid hosting or overages. Free hosting is documented through December 31, 2026; recheck current official terms before relying on this date. At/after January 1, 2027, stop automatic/assumed legacy publishing and ask the owner about continuing the mirror. Keep the old site available; do not delete, redirect, or disable it without a request.
-2. Use the available Sites integration and read its current workflow instructions. Fetch the existing project's current audience and latest source and obtain fresh repository access. Never store credentials in files, commits, URLs, logs, or documentation.
-3. Open the Sites-managed source checkout through the supported workflow. GitHub and Sites have separate Git histories; do not force-push one over the other.
-4. Reconcile the newest source in both locations, then apply the approved portfolio files to that checkout. Preserve `.openai/hosting.json` and existing configuration. Keep the owner-maintained GitHub README.md unchanged.
-5. Validate, push the matching Sites source, package static output, save a version, and deploy that exact version through Sites. Preserve the existing audience; the initial export was public.
-6. Confirm deployment success and report the live URL. Report verification limits accurately. If repository access fails, report the exact error and distinguish committed changes from published changes.
-7. Ensure the final site changes are also committed to GitHub so subsequent agents start with the same content. Avoid force pushes and resolve concurrent changes before updating a branch.
+After owner approval, commit to GitHub and publish the same approved `dist/` revision to both hosts. Follow `docs/DEPLOYMENT.md`. Pages has Actions deployment; the Sites mirror needs a separate supported publication step until an unattended deployment API/credential exists. A mirror drift check is not publication. Record both results separately and preserve the existing Site's public audience and history. Do not overwrite GitHub with Sites design edits, force-push either history, store credentials, authorize hosting charges, or claim success before deployment succeeds.
 
-If Sites is unavailable, editing, local preview, and GitHub commits can still proceed. Clearly say the live Site has not been updated. Do not imply a successful GitHub Pages deployment also published the legacy mirror. No hourly synchronization task is configured; the owner requested the same deployment step and the supported Sites integration cannot run in GitHub Actions.
+## Vercel design guidelines
+
+Use the saved `.agents/skills/web-design-guidelines/SKILL.md` for UI reviews and fetch its current rules before review. Owner instructions override generic guidelines. Preserve concise findings in `docs/DESIGN_REVIEW.md`.

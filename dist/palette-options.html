@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Portfolio palette directions | Sundar Reddy</title>
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="palette-options.css">
+<script src="palette-options.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#comparison">Skip to palette previews</a>
+<main>
+<header class="intro">
+<a class="back" href="./">Sundar Reddy / Portfolio</a>
+<h1>Find the lighter direction.</h1>
+<p>White-first palettes with one highlight color. Compare light and dark, explore the full page, and read the project stories.</p>
+</header>
+<div class="controls">
+<div class="palette-tabs" role="tablist" aria-label="Palette directions">
+<button id="tab-navy" role="tab" aria-selected="false" tabindex="-1" aria-controls="comparison" data-palette="navy">Navy &amp; Persimmon</button>
+<button id="tab-sunlight" role="tab" aria-selected="false" tabindex="-1" aria-controls="comparison" data-palette="sunlight">Sunlight &amp; Raspberry</button>
+<button id="tab-beach" role="tab" aria-selected="false" tabindex="-1" aria-controls="comparison" data-palette="beach">Sunny Beach Day</button>
+<button id="tab-cobalt" role="tab" aria-selected="true" aria-controls="comparison" data-palette="cobalt">Paper &amp; Cobalt</button>
+<button id="tab-coral" role="tab" aria-selected="false" tabindex="-1" aria-controls="comparison" data-palette="coral">Sand &amp; Coral</button>
+<button id="tab-jade" role="tab" aria-selected="false" tabindex="-1" aria-controls="comparison" data-palette="jade">Graphite &amp; Jade</button>
+<button id="tab-aqua" role="tab" aria-selected="false" tabindex="-1" aria-controls="comparison" data-palette="aqua">Orange &amp; Aqua</button>
+</div>
+<fieldset class="view-controls"><legend class="sr-only">Preview content</legend>
+<label><input type="radio" name="view" value="portfolio" checked><span>Career &amp; projects</span></label>
+<label><input type="radio" name="view" value="full"><span>Full page</span></label>
+<label><input type="radio" name="view" value="case-study"><span>Case study</span></label>
+</fieldset>
+<fieldset class="view-controls treatment-controls"><legend class="sr-only">Surface treatment</legend><label><input type="radio" name="treatment" value="flat"><span>Flat</span></label><label><input type="radio" name="treatment" value="selective" checked><span>Selective depth</span></label><label><input type="radio" name="treatment" value="soft"><span>Full soft depth</span></label></fieldset>
+</div>
+<section id="comparison" role="tabpanel" aria-labelledby="tab-cobalt">
+<div class="direction">
+<div><h2 id="direction-title">Paper &amp; Cobalt</h2><p id="direction-copy">Crisp, precise, and easy to scan. The strongest fit for a technical lead portfolio.</p></div>
+<ul class="swatches" id="swatches" aria-label="Palette colors"></ul>
+</div>
+<p class="source" id="palette-source" hidden>Based on <a href="https://coolors.co/palette/ff9f1c-ffbf69-ffffff-cbf3f0-2ec4b6" target="_blank" rel="noopener noreferrer">your Coolors palette</a>, with a deep teal added for readable text and dark surfaces.</p>
+<div class="previews">
+<section class="preview"><header><h3>Light</h3><p id="light-note">A clear canvas with focused blue emphasis.</p></header><iframe title="Light portfolio preview" id="light-preview" loading="eager"></iframe></section>
+<section class="preview"><header><h3>Dark</h3><p id="dark-note">Ink-blue surfaces with a softer cobalt accent.</p></header><iframe title="Dark portfolio preview" id="dark-preview" loading="eager"></iframe></section>
+</div>
+<p class="preview-status" id="preview-status" role="status">Loading portfolio previews…</p>
+<p class="note">These are working previews of your current portfolio. Project cards open their case studies. Typography stays at two families and four sizes; original brand-logo colors are preserved. Palette choices stay in this comparison. The main local preview uses selective depth while you review.</p>
+</section>
+<footer><p>My pick: <strong>Navy &amp; Persimmon</strong> for the clearest, calmest direction. <strong>Sunny Beach Day</strong> is warmer; <strong>Sunlight &amp; Raspberry</strong> adds the most unexpected highlight.</p><a href="./">Return to the current portfolio</a></footer>
+</main></body></html>
