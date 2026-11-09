@@ -171,3 +171,12 @@ rules were fetched and applied; owner content/layout preferences take precedence
 Owner selected Navy & Persimmon with selective depth and authorized publishing
 to GitHub Pages and the existing public ChatGPT site. This supersedes earlier
 local-only/pending-selection notes. GA4 is deferred; keep measurement ID null.
+
+## Published — 9 November 2026
+
+- Approved Navy & Persimmon with selective depth is live on both hosts.
+- GitHub release: `85b4e01d3f0a6b39946a3ee9af92a3918c550b64`.
+- Pages workflow run `42578610556` succeeded; all 11 live core assets match the release source.
+- ChatGPT Sites version 26 deployed successfully from source `3da5a8f1ef979239b26d32df8b93214ed6ef58f5`; its complete dist assets match GitHub.
+- GA4 remains disabled with a null measurement ID, as requested.
+- Pages deploys automatically from GitHub. The Sites mirror used the supported Sites publication workflow for this release; automatic dual-host deployment is not configured.
