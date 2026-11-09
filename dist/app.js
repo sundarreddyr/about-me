@@ -147,7 +147,7 @@ if (growerPhone) {
     sceneTimer = setInterval(() => {
       if (document.hidden || !phoneVisible || dialog.open) return;
       showGrowerScene((sceneIndex + 1) % scenes.length);
-    }, 2800);
+    }, 1800);
   }
   reducedMotion.addEventListener('change', startGrowerPreview);
   window.addEventListener('pageshow', startGrowerPreview);

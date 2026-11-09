@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap');
-@import url('illustrations.css?v=a824ac2511c1');
+@import url('illustrations.css?v=769edd1b5169');
 
 /* One palette, two families, four sizes. Brand assets keep their original colors. */
 :root{
@@ -113,3 +113,6 @@ body.project-open{overflow:hidden}#project-dialog{width:min(780px,calc(100% - 32
 
 /* One mobile role/date pattern, independent of title length. */
 @media(max-width:760px){.role-heading{display:grid;grid-template-columns:1fr;gap:4px}.role-dates{margin:0}.company-heading{display:block}.progression-label{margin-top:8px}.company-group{padding-bottom:28px}}
+
+/* Dates belong to their company, not a separate desktop column. */
+.company-group,.education-step{display:block}.company-heading{display:block}.company-period{display:block;margin-top:6px;padding-top:0}.progression-label{margin-top:8px}.company-heading{margin-bottom:20px}

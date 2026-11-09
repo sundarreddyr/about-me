@@ -275,12 +275,12 @@ window.portfolioProjects = [
     "technicalNote": "That separation also meant adapting how we handled changing data. I made targeted changes to <code>mysql_ch_replicator</code> for replication and handled updates and deletions through new versioned records in our ClickHouse data model.",
     "highlights": [
       [
-        "300+",
-        "analytics touchpoints"
+        "300+ reports",
+        ""
       ],
       [
         ">1 min → 2–3 sec",
-        "analytical report loads"
+        "report loads"
       ]
     ]
   }

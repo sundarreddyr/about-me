@@ -222,3 +222,11 @@ local-only/pending-selection notes. GA4 is deferred; keep measurement ID null.
 Supersedes the earlier 360px card direction: all cards are 400px tall with a common 76px footer allowance. Caption and phone use separate grid columns; screen contents fit all three scenes at 320/390/760/1280 widths. All mobile role dates and progression labels follow the same stacked pattern.
 
 Asset references now use content hashes, including imported illustration CSS and app.js. CI rejects stale references; live verification checks browser-used versioned URLs as well as base files. Prior outer-card-only validation missed internal overlap and warm-cache drift.
+
+## Analytics card — 9 November 2026
+
+Card and case study highlight 300+ reports and >1 min → 2–3 sec report loads. Footer: Multi-tenancy · ClickHouse migration · DB Performance. Replace old bars with a bounded illustrative trend graphic; no invented quantitative axis or overlap with the footer.
+
+Company date ranges now sit directly under company names at every width. The separate desktop date column is removed. Education follows the same name/date order.
+
+Grower preview scenes advance every 1.8 seconds (previously 2.8), retaining reduced-motion and visibility guards.

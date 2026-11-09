@@ -33,7 +33,7 @@ Buildless HTML/CSS/JavaScript: `dist/` is editable source, not generated output.
 - Replace repeated company names at card bottoms with **at most three plain-text keyword phrases**. Exact current phrases are in project memory. Reserve footer space; illustrations must not overlap keywords.
 - Restore/use the authentic local AWS wordmark asset, not the generic cloud glyph. Technology icons keep authentic brand colors as an explicit UI-palette exception; keep authentic silhouettes and source/license notices.
 - One company-heading pattern. No unique Trumetric category subtitle. Every employer has an inner role rail and explicit role dates, including single-role Trumetric. Show "Role progression" for actual multi-role groups.
-- Company date ranges stay on one line. At narrow widths move the complete range above company content. Align role dates right where space permits. Do not confuse tenure, role dates, and project dates.
+- Company date ranges stay on one line. Place the complete range directly beneath the company name at every width; do not reserve a separate date column. Align role dates right where space permits. Do not confuse tenure, role dates, and project dates.
 - Navigation: Home → Career Journey → Skills → Contact. Preserve "The Journey so far", "The tools behind the work", "Say Hi", prominent email, SR favicon, and separate Resume PDF action.
 
 ## Case-study writing and facts
