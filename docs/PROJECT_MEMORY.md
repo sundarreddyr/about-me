@@ -230,3 +230,7 @@ Card and case study highlight 300+ reports and >1 min → 2–3 sec report loads
 Company date ranges now sit directly under company names at every width. The separate desktop date column is removed. Education follows the same name/date order.
 
 Grower preview scenes advance every 1.8 seconds (previously 2.8), retaining reduced-motion and visibility guards.
+
+## Latest resume PDF — 17 November 2026
+
+Owner supplied Sundar_Reddy_R_Resume(2).pdf and requested replacing the portfolio download on GitHub Pages and the existing ChatGPT portfolio mirror. Serve the exact uploaded bytes as dist/assets/Sundar_Reddy_Resume.pdf; keep the stable download filename and use a content-hash query on the link to refresh browser caches. SHA-256: 03d6c2121ea6305b093c9a93afb854e9cce50642444b00258854782783dc5261. This updates the downloadable file only; do not infer permission to rewrite portfolio career or project copy.

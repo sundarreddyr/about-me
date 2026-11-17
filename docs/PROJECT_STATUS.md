@@ -180,3 +180,7 @@ local-only/pending-selection notes. GA4 is deferred; keep measurement ID null.
 - ChatGPT Sites version 26 deployed successfully from source `3da5a8f1ef979239b26d32df8b93214ed6ef58f5`; its complete dist assets match GitHub.
 - GA4 remains disabled with a null measurement ID, as requested.
 - Pages deploys automatically from GitHub. The Sites mirror used the supported Sites publication workflow for this release; automatic dual-host deployment is not configured.
+
+## Resume replacement — 17 November 2026
+
+Latest owner-supplied PDF installed without changing its contents. GitHub Pages and ChatGPT portfolio publication are in progress; verify the deployed PDF hash before marking complete.
