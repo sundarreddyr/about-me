@@ -183,4 +183,10 @@ local-only/pending-selection notes. GA4 is deferred; keep measurement ID null.
 
 ## Resume replacement — 17 November 2026
 
-Latest owner-supplied PDF installed without changing its contents. GitHub Pages and ChatGPT portfolio publication are in progress; verify the deployed PDF hash before marking complete.
+Latest owner-supplied PDF published without changing its contents.
+
+- GitHub release: d517944b1f44fbccfa81e2b7275fde3443d5275a; Pages workflow 44123471841 passed validation, deployment and live byte verification.
+- The live Pages resume returns HTTP 200 and matches the uploaded SHA-256: 03d6c2121ea6305b093c9a93afb854e9cce50642444b00258854782783dc5261.
+- ChatGPT portfolio version 30 deployed successfully from de5890741b5efd4cfbefddaa45e27b2bd6735bb2, deployment appgdep_6afc7d907fe08191aa8ebfee19e92a64.
+- The Sites package uses exactly the same dist bytes as the GitHub release. Direct HTTP verification of the live Sites PDF returned 403 in this environment; do not describe that download as byte-verified.
+- Resume link includes its content-hash version to refresh caches. No portfolio career/project copy changed.
